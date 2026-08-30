@@ -1,0 +1,318 @@
+/* ============================= */
+/* HELP & SUPPORT PAGE */
+/* ============================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+.help-support-page {
+  min-height: calc(100vh - 80px);
+
+  background: #111827;
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  padding: 35px 20px;
+}
+
+
+/* ============================= */
+/* MAIN */
+/* ============================= */
+
+.help-support-main {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+/* ============================= */
+/* SUPPORT CARD */
+/* ============================= */
+
+.help-support-card {
+  width: 100%;
+
+  max-width: 680px;
+
+  background: #30394d;
+
+  border-radius: 20px;
+
+  padding: 28px 34px;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25);
+
+  text-align: center;
+}
+
+
+/* ============================= */
+/* ICON */
+/* ============================= */
+
+.help-support-icon {
+  width: 68px;
+  height: 68px;
+
+  margin: 0 auto 10px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 32px;
+
+  background: linear-gradient(
+    135deg,
+    #6878e6,
+    #7559c9
+  );
+
+  box-shadow:
+    0 8px 20px rgba(91, 95, 214, 0.3);
+}
+
+
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
+.help-support-card h1 {
+  margin: 5px 0 5px;
+
+  font-size: 30px;
+
+  color: #f5f5f5;
+}
+
+
+.help-support-subtitle {
+  color: #bfc6d3;
+
+  margin: 0 0 22px;
+
+  font-size: 15px;
+}
+
+
+/* ============================= */
+/* FIELDS */
+/* ============================= */
+
+.help-support-field {
+  background: #222b3d;
+
+  border-radius: 13px;
+
+  padding: 11px 14px;
+
+  margin-bottom: 10px;
+
+  text-align: left;
+}
+
+
+.help-support-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #cbd2df;
+
+  font-weight: 600;
+
+  font-size: 14px;
+}
+
+
+/* ============================= */
+/* INPUT */
+/* ============================= */
+
+.help-support-field input,
+.help-support-field textarea {
+  width: 100%;
+
+  padding: 11px 13px;
+
+  border-radius: 8px;
+
+  border: 1px solid #3d4a62;
+
+  background: #182131;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-family: Arial, sans-serif;
+
+  outline: none;
+
+  transition: 0.25s;
+
+  resize: vertical;
+}
+
+
+.help-support-field input {
+  height: 42px;
+}
+
+
+.help-support-field textarea {
+  min-height: 130px;
+}
+
+
+.help-support-field input:focus,
+.help-support-field textarea:focus {
+  border-color: #6c7be8;
+
+  box-shadow:
+    0 0 0 3px rgba(108, 123, 232, 0.12);
+}
+
+
+/* ============================= */
+/* SUBMIT BUTTON */
+/* ============================= */
+
+.help-support-btn {
+  width: 100%;
+
+  border: none;
+
+  padding: 13px 28px;
+
+  margin-top: 10px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #6475dc,
+    #5869cc
+  );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+
+.help-support-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(91, 95, 214, 0.35);
+}
+
+
+.help-support-btn:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+
+/* ============================= */
+/* BACK HOME */
+/* ============================= */
+
+.help-support-back {
+  display: inline-block;
+
+  margin-top: 20px;
+
+  color: #a99bff;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  font-size: 14px;
+
+  transition: 0.25s;
+}
+
+
+.help-support-back:hover {
+  color: white;
+}
+
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+.help-support-footer {
+  text-align: center;
+
+  margin-top: 20px;
+
+  color: #aeb6c4;
+
+  font-size: 13px;
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .help-support-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 20px 12px;
+  }
+
+
+  .help-support-card {
+    padding: 22px 15px;
+
+    border-radius: 16px;
+  }
+
+
+  .help-support-icon {
+    width: 60px;
+
+    height: 60px;
+
+    font-size: 28px;
+  }
+
+
+  .help-support-card h1 {
+    font-size: 26px;
+  }
+
+
+  .help-support-field {
+    padding: 10px;
+  }
+
+}

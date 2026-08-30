@@ -1,0 +1,59 @@
+/* ============================= */
+/* MESSAGE OWNER SECTION */
+/* ============================= */
+
+.message-owner-section {
+  margin-top: 25px;
+  text-align: center;
+  padding: 25px;
+}
+
+.message-owner-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.message-owner-section h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.message-owner-section p {
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.message-owner-button {
+  border: none;
+  padding: 13px 28px;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #667eea,
+    #7c5cff
+  );
+
+  color: white;
+
+  box-shadow:
+    0 6px 18px rgba(102, 126, 234, 0.35);
+
+  transition: all 0.2s ease;
+}
+
+.message-owner-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(102, 126, 234, 0.5);
+}
+
+.message-owner-button:active {
+  transform: translateY(0);
+}
