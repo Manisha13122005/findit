@@ -411,12 +411,10 @@ function Profile() {
 
           <footer className="profile-footer">
 
-            <strong>
-              Lovely Professional University
-            </strong>
+            
 
             <p>
-              © 2026 LPU FindIt. All rights reserved.
+              © 2026  FindIt. All rights reserved.
             </p>
 
           </footer>

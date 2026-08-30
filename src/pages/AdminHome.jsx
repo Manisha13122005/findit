@@ -21,7 +21,7 @@ function AdminHome() {
             <h1>Admin Portal</h1>
 
             <p>
-              Welcome to the LPU FindIt Admin Portal.
+              Welcome to the  FindIt Admin Portal.
             </p>
 
           </div>

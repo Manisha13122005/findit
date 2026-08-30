@@ -218,7 +218,7 @@ function MySupportRequests() {
 
           <footer className="support-requests-footer">
 
-            © 2026 LPU FindIt. All rights reserved.
+            © 2026 FindIt. All rights reserved.
 
           </footer>
 

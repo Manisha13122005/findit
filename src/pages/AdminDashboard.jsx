@@ -390,7 +390,7 @@ function AdminDashboard() {
             </h1>
 
             <p>
-              Welcome to the LPU FindIt control center.
+              Welcome to the  FindIt control center.
             </p>
 
           </div>

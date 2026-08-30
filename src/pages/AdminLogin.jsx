@@ -67,7 +67,7 @@ function AdminLogin() {
         <h1>Admin Portal 👑</h1>
 
         <p>
-          Login to access the LPU FindIt Admin Dashboard.
+          Login to access the FindIt Admin Dashboard.
         </p>
 
         <form onSubmit={handleAdminLogin}>

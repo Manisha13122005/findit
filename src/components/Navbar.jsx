@@ -622,7 +622,7 @@ function Navbar() {
 
 
               <span className="navbar-logo-text">
-                LPU FindIt
+                 FindIt
               </span>
 
             </Link>
@@ -771,7 +771,7 @@ function Navbar() {
                 className="navbar-sidebar-logo"
                 onClick={closeMenu}
               >
-                🔎 LPU FindIt
+                🔎  FindIt
               </Link>
 
 

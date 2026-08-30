@@ -165,7 +165,7 @@ function ReportDetails() {
 
               <p>
                 Contact the person who posted this item
-                privately through LPU FindIt.
+                privately through FindIt.
               </p>
 
               <button

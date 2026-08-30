@@ -272,7 +272,7 @@ function ChangePassword() {
           <footer className="change-password-footer">
 
             <p>
-              © 2026 LPU FindIt. All rights reserved.
+              © 2026 FindIt. All rights reserved.
             </p>
 
           </footer>

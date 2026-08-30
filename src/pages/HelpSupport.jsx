@@ -156,7 +156,7 @@ function HelpSupport() {
           <footer className="help-support-footer">
 
             <p>
-              © 2026 LPU FindIt. All rights reserved.
+              © 2026 FindIt. All rights reserved.
             </p>
 
           </footer>

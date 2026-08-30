@@ -642,7 +642,7 @@ function Messages() {
             </h1>
 
             <p>
-              Chat privately with other LPU FindIt users.
+              Chat privately with other FindIt users.
             </p>
 
           </div>
