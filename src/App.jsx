@@ -1,5 +1,7 @@
 import "./App.css";
 
+import { useEffect, useState } from "react";
+
 import {
   BrowserRouter,
   Routes,
@@ -23,6 +25,95 @@ import Messages from "./pages/Messages";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
 import AdminHome from "./pages/AdminHome";
+
+
+/* ============================= */
+/* INSTALL APP BUTTON */
+/* ============================= */
+
+function InstallApp() {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstall, setShowInstall] = useState(false);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (event) => {
+      event.preventDefault();
+
+      setDeferredPrompt(event);
+      setShowInstall(true);
+    };
+
+    const handleAppInstalled = () => {
+      setDeferredPrompt(null);
+      setShowInstall(false);
+    };
+
+    window.addEventListener(
+      "beforeinstallprompt",
+      handleBeforeInstallPrompt
+    );
+
+    window.addEventListener(
+      "appinstalled",
+      handleAppInstalled
+    );
+
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+
+      window.removeEventListener(
+        "appinstalled",
+        handleAppInstalled
+      );
+    };
+  }, []);
+
+  const handleInstall = async () => {
+    if (!deferredPrompt) {
+      return;
+    }
+
+    deferredPrompt.prompt();
+
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+      console.log("FindIt installed successfully!");
+    }
+
+    setDeferredPrompt(null);
+    setShowInstall(false);
+  };
+
+  if (!showInstall) return null;
+
+  return (
+    <div className="install-app-banner">
+      <div className="install-app-text">
+        <div className="install-icon">📱</div>
+
+        <div>
+          <strong>Install FindIt</strong>
+
+          <p>
+            Get quick access from your home screen!
+          </p>
+        </div>
+      </div>
+
+      <button
+        className="install-app-btn"
+        onClick={handleInstall}
+      >
+        Install
+      </button>
+    </div>
+  );
+}
+
 
 /* ============================= */
 /* HOME PAGE */
@@ -81,6 +172,7 @@ function Home() {
   );
 }
 
+
 /* ============================= */
 /* MAIN APP */
 /* ============================= */
@@ -88,6 +180,10 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
+
+      {/* INSTALL FINDIT BUTTON */}
+      <InstallApp />
+
       <Routes>
 
         {/* DEFAULT → LOGIN */}

@@ -23,19 +23,46 @@ function Login() {
   const handleAuth = async (e) => {
     e.preventDefault();
 
+    // CHECK EMAIL AND PASSWORD
     if (!email || !password) {
       alert("Please enter email and password!");
       return;
     }
 
+    // CHECK NAME AND PHONE FOR NEW USERS
     if (!isLogin && (!fullName || !phone)) {
       alert("Please enter your full name and mobile number!");
       return;
     }
 
+    // PASSWORD VALIDATION FOR NEW USERS
+    // This happens BEFORE contacting Supabase
+    if (!isLogin) {
+      const hasUpperCase = /[A-Z]/.test(password);
+      const hasLowerCase = /[a-z]/.test(password);
+      const hasNumber = /[0-9]/.test(password);
+      const hasSpecialChar = /[^A-Za-z0-9]/.test(password);
+      const isLongEnough = password.length >= 8;
+
+      if (
+        !hasUpperCase ||
+        !hasLowerCase ||
+        !hasNumber ||
+        !hasSpecialChar ||
+        !isLongEnough
+      ) {
+        alert(
+          "Please create a strong password! 🔐\n\nYour password must contain:\n• At least 8 characters\n• One CAPITAL letter\n• One small letter\n• One number\n• One special symbol"
+        );
+        return;
+      }
+    }
+
+    // ONLY AFTER ALL VALIDATION IS SUCCESSFUL
     setLoading(true);
 
     try {
+      // LOGIN
       if (isLogin) {
         const { error } = await supabase.auth.signInWithPassword({
           email,
@@ -46,7 +73,10 @@ function Login() {
 
         alert("Login successful! 🎉");
         navigate("/home");
-      } else {
+      }
+
+      // SIGN UP
+      else {
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
@@ -60,6 +90,7 @@ function Login() {
 
         if (error) throw error;
 
+        // CHECK IF EMAIL IS ALREADY REGISTERED
         if (data.user && data.user.identities?.length === 0) {
           alert("This email is already registered. Please login.");
           setIsLogin(true);
@@ -74,9 +105,9 @@ function Login() {
       }
     } catch (error) {
       alert(error.message);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   // VERIFY OTP
@@ -104,9 +135,9 @@ function Login() {
       navigate("/home");
     } catch (error) {
       alert(error.message);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   // RESEND OTP
@@ -124,9 +155,9 @@ function Login() {
       alert("New OTP sent! 📧");
     } catch (error) {
       alert(error.message);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   // FORGOT PASSWORD
@@ -150,9 +181,9 @@ function Login() {
       alert("Password reset link sent to your email! 📧");
     } catch (error) {
       alert(error.message);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   // OTP SCREEN
@@ -297,7 +328,7 @@ function Login() {
             required
           />
 
-          {/* PASSWORD WITH EYE BUTTON */}
+          {/* PASSWORD WITH SHOW/HIDE BUTTON */}
           <div className="password-wrapper">
             <input
               type={showPassword ? "text" : "password"}
@@ -339,6 +370,7 @@ function Login() {
           </button>
         </form>
 
+        {/* LOGIN / SIGNUP SWITCH */}
         <p className="switch-text">
           {isLogin
             ? "Don't have an account?"
@@ -359,19 +391,21 @@ function Login() {
             {isLogin ? " Sign Up" : " Login"}
           </button>
         </p>
-        {isLogin && (
-  <p className="admin-portal-link">
-    👑 Are you an administrator?
 
-    <button
-      type="button"
-      className="admin-login-btn"
-      onClick={() => navigate("/admin-login")}
-    >
-      Admin Portal
-    </button>
-  </p>
-)}
+        {/* ADMIN PORTAL */}
+        {isLogin && (
+          <p className="admin-portal-link">
+            👑 Are you an administrator?
+
+            <button
+              type="button"
+              className="admin-login-btn"
+              onClick={() => navigate("/admin-login")}
+            >
+              Admin Portal
+            </button>
+          </p>
+        )}
       </div>
     </div>
   );

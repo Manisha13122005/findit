@@ -410,9 +410,7 @@ function Profile() {
           {/* FOOTER */}
 
           <footer className="profile-footer">
-
             
-
             <p>
               © 2026  FindIt. All rights reserved.
             </p>
